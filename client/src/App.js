@@ -1,23 +1,65 @@
-import logo from './logo.svg';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <div className='col-md-12'>
+        <div className='weatherBg'>
+
+
+
+          <div className='head'>
+           <h1  className='heading'>SENSE</h1>
+            <h1  ><span  className='heading-span'>&#176;</span></h1>
+            </div>
+
+            <div className='tempdiv'>
+
+              <p>City</p>
+              <h1>30 C</h1>
+
+            </div>
+
+
+
+          <div className='prop-cont'>
+
+            <div className='tempdiv2'>
+            <p>prop</p>
+            <h1>value</h1>
+            </div><div className='tempdiv2'>
+            <p>prop</p>
+            <h1>value</h1>
+            </div><div className='tempdiv2'>
+            <p>prop</p>
+            <h1>value</h1>
+            </div><div className='tempdiv2'>
+            <p>prop</p>
+            <h1>value</h1>
+            </div>
+
+
+            </div>
+
+
+          
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+          </div> 
     </div>
   );
 }
