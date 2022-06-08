@@ -91,6 +91,26 @@ transition: .75s;
 }
 
 
+.message{
+position: absolute;
+top: 10px;
+right: 10px;
+width: 25%;
+padding: 1rem;
+  text-align: center;
+  
+/* From https://css.glass */
+background: rgba(255, 255, 255, 0.09);
+border-radius: 16px;
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(3px);
+-webkit-backdrop-filter: blur(3px);
+border: 1px solid rgba(255, 255, 255, 0.36);
+transition: .75s;
+}
+
+
+
 .prop-cont{
   display: flex;
   flex-direction: row;
@@ -121,7 +141,9 @@ box-shadow: 0 4px 30px rgba(0, 0, 0, 0.218);
 border: 1px solid rgba(255, 255, 255, 0.36);
 transition: .5s;
 }
-
+.tempdiv2 p{
+  font-weight: bold;
+}
 
 
 
