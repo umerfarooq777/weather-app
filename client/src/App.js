@@ -81,10 +81,15 @@ function App() {
             </h1>
           </div>
 
-          <div className="tempdiv">
-            <p>City</p>
+          {weather && weather.name ? (<div className="tempdiv">
+            <p> {weather.name}</p>
             <h1>30 C</h1>
-          </div>
+          </div>)
+          :
+          (<div className="tempdiv">
+          <p>City</p>
+          <h1>30 C</h1>
+        </div>)}
 
           {weather && weather.coord ? (
             <div className="message ">
