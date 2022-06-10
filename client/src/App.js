@@ -94,7 +94,13 @@ function App() {
           <h1><LoadingAnimation/></h1>
         </div>)}
 
-          {weather && weather.coord ? (
+
+
+
+
+
+        { 
+          weather && weather.coord ? (
             <div className="message ">
               <p>
                 Latitude: {weather.coord.lat}
@@ -109,7 +115,16 @@ function App() {
               </p>
                <LoadingAnimation/>
             </div>
-          ) }
+          ) 
+
+          }
+
+
+
+
+
+
+
 
           {weather && weather.wind ? (
             <div className="prop-cont">
