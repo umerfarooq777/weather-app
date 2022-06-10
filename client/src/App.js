@@ -4,7 +4,8 @@ import useGeoLocation from "./hooks/useGeoLocation";
 import { useEffect, useState } from "react";
 import LoadingAnimation from "./components/Loading/loadingAnimation";
 
-const weather_api_key = "7d2b0196a91d8549991cb66ad004cd9a";
+const weather_api_key1 = "7d2b0196a91d8549991cb66ad004cd9a";
+const weather_api_key2 = "d81586f267c0e0674808eacb151da4a5";
 const base_weather_url =
   "https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}";
 
@@ -12,7 +13,7 @@ function App() {
   const [weather, setweather] = useState(null);
   const [lat, setLat] = useState(null);
   const [lng, setLng] = useState(null);
-  const [status, setStatus] = useState(null);
+  const [status, setStatus] = useState(false);
 
   // console.log("🚀 ~ file: App.js ~ line 55 ~ getPokemon ~ res", weather.wind? alert("wind hai"):alert("wind nahi hai"));
   // const location = useGeoLocation();
@@ -35,35 +36,41 @@ function App() {
       setStatus("Locating...");
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          setStatus("hogya");
           setLat(position.coords.latitude);
           setLng(position.coords.longitude);
+          setStatus(true);
         },
         () => {
-          setStatus("Unable to retrieve your location");
+          // setStatus("Unable to retrieve your location");
+          setStatus(false)
         }
       );
     } catch {
-      setStatus("Geolocation is not supported by your browser");
+      // setStatus("Geolocation is not supported by your browser");
+      setStatus(false)
     }
     // }
   };
-
+  
   useEffect(() => {
-    const fetchPokemon = async () => {
+    const fetchAPI = async () => {
         getLocation();
         // const url = `https://api.openweathermap.org/data/2.5/weather?lat=24.8686444&lon=67.0821597&appid=7d2b0196a91d8549991cb66ad004cd9a`;
-        const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=7d2b0196a91d8549991cb66ad004cd9a&units=metric`;
-        const data = await fetch(url);
-        const res = await data.json();
-        setweather(res);
-        console.log(
-          "🚀 ~ file: App.js ~ line 107 ~ getPokemon ~ getLocation",
-         res
-        );
+        const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${weather_api_key2}&units=metric`;
+        if(status){
+          const data = await fetch(url);
+          const res = await data.json();
+          console.log(res);
+          if(data.ok){
+            setweather(res);
+          }
+        }
+
+
+        console.log("sensed");
     };
-    // fetchPokemon();
-  }, [lng && lat && status === "hogya"]);
+    fetchAPI();
+  }, [lat && lng]);
 
 
   // useEffect(() => {
