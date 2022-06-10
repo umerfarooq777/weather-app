@@ -73,25 +73,6 @@ function App() {
   }, [lat && lng]);
 
 
-  // useEffect(() => {
-  //   const fetchPokemon = () => {
-  //     const getPokemon = async () => {
-  //       getLocation();
-  //       // const url = `https://api.openweathermap.org/data/2.5/weather?lat=24.8686444&lon=67.0821597&appid=7d2b0196a91d8549991cb66ad004cd9a`;
-  //       const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=7d2b0196a91d8549991cb66ad004cd9a&units=metric`;
-  //       const data = await fetch(url);
-  //       const res = await data.json();
-  //       setweather(res);
-  //       console.log(
-  //         "🚀 ~ file: App.js ~ line 107 ~ getPokemon ~ getLocation",
-  //        res
-  //       );
-  //     };
-  //     getPokemon();
-  //   };
-  //   fetchPokemon();
-  // }, [lng && lat && status === "hogya"]);
-
   return (
     <div>
       <div className="col-md-12">
