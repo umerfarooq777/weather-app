@@ -14,6 +14,7 @@ function App() {
   const [lat, setLat] = useState(null);
   const [lng, setLng] = useState(null);
   const [status, setStatus] = useState(false);
+  const [message, setMessage] = useState(null);
 
   // console.log("🚀 ~ file: App.js ~ line 55 ~ getPokemon ~ res", weather.wind? alert("wind hai"):alert("wind nahi hai"));
   // const location = useGeoLocation();
@@ -33,16 +34,23 @@ function App() {
 
   const getLocation = () => {
     try {
-      setStatus("Locating...");
+      setMessage("Allow to access your location...");
       navigator.geolocation.getCurrentPosition(
         (position) => {
           setLat(position.coords.latitude);
           setLng(position.coords.longitude);
           setStatus(true);
+          let arr=[];
+          arr.push(lat)
+          arr.push(lng)
+          // setMessage(position.coords.latitude+"Longitude: "+position.coords.longitude)
+          setMessage(arr)
+
         },
         () => {
           // setStatus("Unable to retrieve your location");
           setStatus(false)
+          setMessage("Permission denied...")
         }
       );
     } catch {
@@ -97,26 +105,20 @@ function App() {
 
 
 
-
-
         { 
-          weather && weather.coord ? (
-            <div className="message ">
+            status?(<div className="message ">
               <p>
-                Latitude: {weather.coord.lat}
-                <br />
-                Longitude: {weather.coord.lon}
+                {`Latitude ${message[0]}`}
               </p>
-            </div>
-          ) : (
-            <div className="message ">
               <p>
-               Loading data
+                {`longitude ${message[1]}`}
               </p>
-               <LoadingAnimation/>
-            </div>
-          ) 
-
+            </div>):(<div className="message ">
+              <p>
+                {message}
+              </p>
+            </div>)
+          
           }
 
 
