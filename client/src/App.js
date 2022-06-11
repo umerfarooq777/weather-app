@@ -40,6 +40,7 @@ function App() {
           setLat(position.coords.latitude);
           setLng(position.coords.longitude);
           setStatus(true);
+          setMessage("locating...")
           let arr=[];
           arr.push(lat)
           arr.push(lng)
@@ -91,82 +92,142 @@ function App() {
               <span className="heading-span">&#176;</span>
             </h1>
           </div>
+            
+                    { 
+                        status?(<div className="message glass">
+                          <p>
+                            {`Latitude ${message[0]}`}
+                          </p>
+                          <p>
+                            {`longitude ${message[1]}`}
+                          </p>
+                        </div>):(<div className="message glass">
+                          <p>
+                            {message}
+                          </p>
+                        </div>)
+                      
+                      }
 
-          {weather && weather.name ? (<div className="tempdiv">
+
+
+                      <div className="main-cont">
+
+          {weather && weather.name ? (
+          <div className="tempdiv glass">
+            
+            <div className="weather-info">
             <p> {weather.name}</p>
             <h1>{weather.main.temp}&#176;</h1>
+            </div>
+            <div className="icon">jdjjdd</div>
           </div>)
           :
-          (<div className="tempdiv">
-          <p>City</p>
-          <h1><LoadingAnimation/></h1>
+          (<div className="tempdiv glass">
+          <LoadingAnimation/>
         </div>)}
 
 
 
 
-        { 
-            status?(<div className="message ">
-              <p>
-                {`Latitude ${message[0]}`}
-              </p>
-              <p>
-                {`longitude ${message[1]}`}
-              </p>
-            </div>):(<div className="message ">
-              <p>
-                {message}
-              </p>
-            </div>)
-          
-          }
-
-
-
-
-
-
-
-
           {weather && weather.wind ? (
-            <div className="prop-cont">
-              <div className="tempdiv2">
+            <div className="prop-cont ">
+              <div className="tempdiv2 glass">
                 <h1>{weather.main.feels_like}&#176;</h1>
                 <p>Feels Like</p>
               </div>
-              <div className="tempdiv2">
+              <div className="tempdiv2 glass">
                 <h1>{weather.main.humidity}%</h1>
                 <p>Humidity</p>
               </div>
-              <div className="tempdiv2">
+              <div className="tempdiv2 glass">
                 <h1>{`${weather.wind.speed} m/s`}</h1>
                 <p>Wind Speed</p>
               </div>
-              <div className="tempdiv2">
+              <div className="tempdiv2 glass">
                 <h1>{weather.main.pressure} mb</h1>
                 <p>Pressure</p>
               </div>
             </div>
           ) : (
             <div className="prop-cont">
-              <div className="tempdiv2">
+              <div className="tempdiv2 glass">
                 <h1><LoadingAnimation/></h1>
                 <p>Feels Like</p>
               </div>
-              <div className="tempdiv2">
+              <div className="tempdiv2 glass">
                 <h1><LoadingAnimation/></h1>
                 <p>Humidity</p>
               </div>
-              <div className="tempdiv2">
+              <div className="tempdiv2 glass">
                 <h1><LoadingAnimation/></h1>
                 <p>Wind Speed</p>
               </div>
-              <div className="tempdiv2">
+              <div className="tempdiv2 glass">
                 <h1><LoadingAnimation/></h1>
                 <p>Pressure</p>
               </div>
             </div>
           )}
+
+</div>
+
+
+<div className="forcast-cont">
+
+<div className="forcast-details-main glass">
+  <h3>Today</h3>
+  <p>night</p>
+  <p>morning</p>  
+  </div>
+
+  <div className="other-days">
+
+  <div className="forcast-details glass">
+  <h3>day</h3>
+  <p>night</p>
+  <p>morning</p>  
+  </div>
+
+  <div className="forcast-details glass">
+  <h3>day</h3>
+  <p>night</p>
+  <p>morning</p>  
+  </div>
+
+  <div className="forcast-details glass">
+  <h3>day</h3>
+  <p>night</p>
+  <p>morning</p>  
+  </div>
+
+  <div className="forcast-details glass">
+  <h3>day</h3>
+  <p>night</p>
+  <p>morning</p>  
+  </div>
+
+  <div className="forcast-details glass">
+  <h3>day</h3>
+  <p>night</p>
+  <p>morning</p>  
+  </div>
+
+  <div className="forcast-details glass">
+  <h3>day</h3>
+  <p>night</p>
+  <p>morning</p>  
+  </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+          
         </div>
       </div>
     </div>
