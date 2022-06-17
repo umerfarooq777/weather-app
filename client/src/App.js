@@ -11,6 +11,8 @@ const base_weather_url =
 
 function App() {
   const [weather, setweather] = useState(null);
+  const [iconURL, setIconURL] = useState(null);
+  
   const [lat, setLat] = useState(null);
   const [lng, setLng] = useState(null);
   const [status, setStatus] = useState(false);
@@ -41,6 +43,7 @@ function App() {
           setLng(position.coords.longitude);
           setStatus(true);
           setMessage("locating...")
+
           let arr=[];
           arr.push(lat)
           arr.push(lng)
@@ -70,17 +73,25 @@ function App() {
           const data = await fetch(url);
           const res = await data.json();
           console.log(res);
+          
+          const iconid=res.weather[0].icon;
+          var iconurl=`http://openweathermap.org/img/w/${iconid}.png`
+          setIconURL(iconurl)
+          // console.log(iconurl)
           if(data.ok){
             setweather(res);
           }
         }
-
-
+        
         console.log("sensed");
     };
     fetchAPI();
   }, [lat && lng]);
 
+
+// const iconid=weather.weather[0].icon;
+// console.log(iconid)
+// var iconurl=`http://openweathermap.org/img/w/${iconid}.png`
 
   return (
     <div>
@@ -120,7 +131,10 @@ function App() {
             <p> {weather.name}</p>
             <h1>{weather.main.temp}&#176;</h1>
             </div>
-            <div className="icon">jdjjdd</div>
+            <div className="icon">
+              <img src={iconURL} />
+              {            
+              weather.weather[0].description}</div>
           </div>)
           :
           (<div className="tempdiv glass">
