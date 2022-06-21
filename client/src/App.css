@@ -421,7 +421,7 @@ transition: .5s;
     top: 20%;
     left: 5%;
     z-index: 5;
-    height: 15vh;
+    height: 12vh;
     width: 90%;
   transition: .5s;
   }
@@ -430,8 +430,8 @@ transition: .5s;
     font-size: .75rem;
   }
   .tempdiv2 h1{
-    font-weight:normal;
-    font-size: 1rem;
+    font-weight:bold;
+    font-size: 1rem;margin-top: 1rem;
   }
   
   .weatherBg{
