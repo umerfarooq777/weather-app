@@ -129,13 +129,18 @@ function App() {
             
             <div className="weather-info">
             <p> {weather.name}</p>
-            <h1>{weather.main.temp}&#176;</h1>
+            <h1>{(weather.main.temp).toFixed(0)}&#176;C</h1>
+            </div>
+            <div className="minmax">
+              <p>Min: {(weather.main.temp_min).toFixed(0)}&#176;C</p>
+              <p>Max: {(weather.main.temp_max).toFixed(0)}&#176;C</p>
             </div>
             <div className="icon">
               <img className="weather-icon" src={iconURL} />
               {            
               weather.weather[0].description}</div>
-          </div>)
+          </div>
+          )
           :
           (<div className="tempdiv glass">
           <LoadingAnimation/>
@@ -147,7 +152,7 @@ function App() {
           {weather && weather.wind ? (
             <div className="prop-cont ">
               <div className="tempdiv2 glass">
-                <h1>{weather.main.feels_like}&#176;</h1>
+                <h1>{(weather.main.feels_like).toFixed(0)}&#176;C</h1>
                 <p>Feels Like</p>
               </div>
               <div className="tempdiv2 glass">
@@ -186,7 +191,7 @@ function App() {
 
 </div>
 
-
+{/* 
 <div className="forcast-cont">
 
 <div className="forcast-details-main glass">
@@ -234,7 +239,7 @@ function App() {
   </div>
 
   </div>
-</div>
+</div> */}
 
 
 
