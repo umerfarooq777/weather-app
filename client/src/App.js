@@ -132,7 +132,7 @@ function App() {
             <h1>{weather.main.temp}&#176;</h1>
             </div>
             <div className="icon">
-              <img src={iconURL} />
+              <img className="weather-icon" src={iconURL} />
               {            
               weather.weather[0].description}</div>
           </div>)

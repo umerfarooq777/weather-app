@@ -98,7 +98,8 @@ transition: .75s;
   margin: 1rem auto;
   text-align: center;
 }
-
+.weather-icon{
+  background:red;}
 .weather-info{
   margin: auto 0;
 }
